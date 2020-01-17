@@ -5,6 +5,9 @@
 	</node>
 
 	<node name="laser_transform" pkg="tf" type="static_transform_publisher" args="0.16 0 0 0 0 0 base_link laser 100"/>
-	<node name="gmapping" pkg="gmapping" type="slam_gmapping" args="scan:=scan_filtered"/>
+	<node name="gmapping" pkg="gmapping" type="slam_gmapping" args="scan:=scan_filtered">
+		<param name="linearUpdate" value="0.1"/>
+		<param name="angularUpdate" value="0.1"/>
+	</node>
 	<node name="visualization" pkg="rviz" type="rviz"/>
 </launch>
